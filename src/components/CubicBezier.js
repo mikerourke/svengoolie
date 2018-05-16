@@ -10,10 +10,11 @@ import { getBezierMovement, mustContainValidPosition } from '../lib';
  * dc1x,dc1y, dc2x,dc2y are all relative to the initial point, not the end
  * point. dx and dy are the distance to the right and down, respectively.
  */
-const CubicBezier = props => {
+const CubicBezier = () => <React.Fragment />;
+
+CubicBezier.getMovement = props => {
   const cubicNodes = [{ length: 2, command: 's' }, { length: 3, command: 'c' }];
-  const movement = getBezierMovement(props, cubicNodes);
-  return <g data-movement={movement} />;
+  return getBezierMovement(props, cubicNodes);
 };
 
 CubicBezier.propTypes = {

@@ -6,6 +6,8 @@ import React from 'react';
  * parameters. It will take the shortest linear path to the starting point,
  * intersecting other paths if they fall in the way.
  */
-const Close = () => <g data-movement="z" />;
+const Close = () => <React.Fragment />;
+
+Close.getMovement = () => 'z';
 
 export default Close;

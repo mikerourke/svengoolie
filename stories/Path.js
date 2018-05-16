@@ -2,63 +2,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { TableComponent, Wrapper } from './common';
 import { Arc, CubicBezier, Line, Move, Path, Point } from '../src';
 
-const Wrapper = ({ children, ...rest }) => (
-  <svg width={500} height={125} {...rest}>
-    <g transform="translate(4, 4)">{children}</g>
-  </svg>
-);
-
-const TableComponent = ({ propDefinitions }) => {
-  const borderStyle = {
-    border: '1px solid gray',
-    fontSize: 14,
-  };
-
-  const cellStyle = {
-    ...borderStyle,
-    padding: 4,
-  };
-
-  const props = propDefinitions.map(
-    ({ property, propType, required, description, defaultValue }) => {
-      return (
-        <tr key={property}>
-          <td style={{ ...cellStyle, fontFamily: 'monospace' }}>{property}</td>
-          <td style={cellStyle}>
-            {propType.name === 'custom' ? 'bool' : propType.name}
-          </td>
-          <td style={cellStyle}>{required ? 'Yes' : 'No'}</td>
-          <td style={cellStyle}>{defaultValue || '-'}</td>
-          <td style={cellStyle}>{description}</td>
-        </tr>
-      );
-    },
-  );
-
-  const headingStyle = {
-    ...cellStyle,
-    textAlign: 'left',
-  };
-
-  return (
-    <table style={{ ...borderStyle, borderCollapse: 'collapse' }}>
-      <thead style={borderStyle}>
-        <tr style={borderStyle}>
-          <th style={headingStyle}>Name</th>
-          <th style={headingStyle}>Type</th>
-          <th style={headingStyle}>Required</th>
-          <th style={headingStyle}>Default</th>
-          <th style={headingStyle}>Description</th>
-        </tr>
-      </thead>
-      <tbody>{props}</tbody>
-    </table>
-  );
-};
-
-storiesOf('Simple Shapes', module)
+storiesOf('Path', module)
   .add(
     'Horizontal Line',
     withInfo({
@@ -119,11 +66,10 @@ storiesOf('Simple Shapes', module)
         </Path>
       </Wrapper>
     )),
-  );
+  )
 
-storiesOf('Complex Shapes', module)
   .add(
-    'Rectangle',
+    'Complex Rectangle',
     withInfo({
       propTablesExclude: [Wrapper],
       TableComponent,

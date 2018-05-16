@@ -10,10 +10,10 @@ import { getCommand, mustContainValidPosition } from '../lib';
  * initial moveto, commands will be executed with the starting point,
  * wherever this was previously, possibly resulting in undefined behaviour.
  */
-const Move = ({ x, y, ...rest }) => {
-  const movement = [getCommand('m', rest), x, y].join(' ');
-  return <g data-movement={movement} />;
-};
+const Move = () => <React.Fragment />;
+
+Move.getMovement = ({ x, y, ...rest }) =>
+  [getCommand('m', rest), x, y].join(' ');
 
 Move.propTypes = {
   /**

@@ -12,7 +12,8 @@ setDefaults({
 });
 
 function loadStories() {
-  require('../stories/index.js');
+  require('../stories/Path.js');
+  require('../stories/Polygon.js');
   // You can require as many stories as you need.
 }
 

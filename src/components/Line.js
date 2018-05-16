@@ -14,13 +14,14 @@ import { getCommand, mustContainValidPosition } from '../lib';
  * versions h and v specify relative coordinates (juas as they do with l),
  * but they only take a single argument.
  */
-const Line = ({ x, y, ...rest }) => {
+const Line = () => <React.Fragment />;
+
+Line.getMovement = ({ x, y, ...rest }) => {
   let command = 'l';
   if (y === null) command = 'h';
   if (x === null) command = 'v';
   const validValues = [x, y].filter(value => value !== null);
-  const movement = [getCommand(command, rest), ...validValues].join(' ');
-  return <g data-movement={movement} />;
+  return [getCommand(command, rest), ...validValues].join(' ');
 };
 
 Line.propTypes = {

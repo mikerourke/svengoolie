@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { mustContainValidPosition, getBezierMovement } from '../lib';
 
-const QuadBezier = props => {
+const QuadBezier = () => <React.Fragment />;
+
+QuadBezier.getMovement = props => {
   const quadNodes = [{ length: 1, command: 't' }, { length: 2, command: 'q' }];
-  const movement = getBezierMovement(props, quadNodes);
-  return <g data-movement={movement} />;
+  return getBezierMovement(props, quadNodes);
 };
 
 QuadBezier.propTypes = {

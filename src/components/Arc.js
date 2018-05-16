@@ -6,11 +6,12 @@ import { getCommand, mustContainValidPosition } from '../lib';
  * Represents `arcto` movement. Sometimes it is easier to describe a path as an
  * elliptical curve, rather than a Bezier curve. To this end, arcto commands
  * are supported in paths.
- * @constructor
  */
-const Arc = ({ rx, ry, rotation, large, sweep, x, y, ...rest }) => {
+const Arc = () => <React.Fragment />;
+
+Arc.getMovement = ({ rx, ry, rotation, large, sweep, x, y, ...rest }) => {
   const command = getCommand('a', rest);
-  const movement = [
+  return [
     command,
     rx,
     ry,
@@ -20,7 +21,6 @@ const Arc = ({ rx, ry, rotation, large, sweep, x, y, ...rest }) => {
     x,
     y,
   ].join(' ');
-  return <g data-movement={movement} />;
 };
 
 Arc.propTypes = {
