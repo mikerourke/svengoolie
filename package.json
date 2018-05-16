@@ -1,0 +1,152 @@
+{
+  "name": "react-svg-path",
+  "version": "0.0.1",
+  "description": "Path builder for React.",
+  "main": "index.js",
+  "repository": "https://github.com/mikerourke/react-svg-path.git",
+  "author": "Mike Rourke <mike.w.rourke@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "prettier": "prettier --write \"{src,__{tests,mocks}__}/**/*.js\"",
+    "lint": "eslint --ext .js ./src && echo No linting errors."
+  },
+  "devDependencies": {
+    "@storybook/addon-info": "^3.4.4",
+    "@storybook/addon-options": "^3.4.4",
+    "@storybook/react": "^3.4.3",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-default": "^7.0.0-alpha.20",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.12.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "8"
+          }
+        }
+      ],
+      "react"
+    ],
+    "plugins": [
+      "transform-react-remove-prop-types",
+      "transform-export-default",
+      "transform-class-properties",
+      "transform-object-rest-spread"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "airbnb",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "prettier",
+      "prettier/react"
+    ],
+    "globals": {
+      "__DEV__": true,
+      "analytics": true,
+      "winston": true
+    },
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "plugins": [
+      "react"
+    ],
+    "rules": {
+      "class-methods-use-this": "off",
+      "no-return-assign": [
+        "error",
+        "except-parens"
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 80,
+          "ignoreComments": true,
+          "ignoreRegExpLiterals": true,
+          "ignoreStrings": true,
+          "ignoreTemplateLiterals": true,
+          "ignoreTrailingComments": true,
+          "ignoreUrls": true
+        }
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ],
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "@storybook.*"
+          ]
+        }
+      ],
+      "react/jsx-filename-extension": [
+        "warn",
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "react/prefer-stateless-function": "off",
+      "react/prop-types": [
+        "error",
+        {
+          "ignore": [
+            "className"
+          ]
+        }
+      ],
+      "react/no-unused-prop-types": "off",
+      "react/require-default-props": "off"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js"
+          ],
+          "moduleDirectory": [
+            "./",
+            "node_modules"
+          ]
+        }
+      }
+    }
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}

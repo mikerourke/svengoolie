@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "8"
+        }
+      }
+    ],
+    "react"
+  ],
+  "plugins": [
+    "transform-export-default",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ]
+}
