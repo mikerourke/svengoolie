@@ -14,6 +14,7 @@ setDefaults({
 function loadStories() {
   require('../stories/Path.js');
   require('../stories/Polygon.js');
+  require('../stories/Polyline');
   // You can require as many stories as you need.
 }
 

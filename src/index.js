@@ -7,3 +7,4 @@ export Point from './components/Point';
 export QuadBezier from './components/QuadBezier';
 export Path from './elements/Path';
 export Polygon from './elements/Polygon';
+export Polyline from './elements/Polyline';

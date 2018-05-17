@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getAttributeValue } from '../lib';
+import { extrapolateDirections } from '../lib';
 
 export default class Path extends React.Component {
   static propTypes = {
@@ -18,7 +18,7 @@ export default class Path extends React.Component {
 
   render() {
     const { autoClose, children, ...rest } = this.props;
-    const directions = getAttributeValue(children);
+    const directions = extrapolateDirections(children);
     const fullDirections = autoClose === true ? `${directions} z` : directions;
     return <path d={fullDirections} {...rest} />;
   }

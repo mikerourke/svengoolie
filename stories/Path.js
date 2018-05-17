@@ -130,4 +130,45 @@ storiesOf('Path', module)
         </Path>
       </Wrapper>
     )),
+  )
+
+  .add(
+    'Animation',
+    withInfo({
+      propTablesExclude: [Wrapper],
+      TableComponent,
+    })(() => (
+      <Wrapper>
+        <Path stroke="lightgrey" strokeWidth={2} fill="none" id="motionPath">
+          <Move absolute x={10} y={110} />
+          <Arc
+            absolute
+            rx={120}
+            ry={120}
+            rotation={-45}
+            large={false}
+            sweep="positive"
+            x={110}
+            y={10}
+          />
+          <Arc
+            absolute
+            rx={120}
+            ry={120}
+            rotation={-45}
+            large={false}
+            sweep="positive"
+            x={10}
+            y={110}
+          />
+        </Path>
+        <circle cx="10" cy="110" r="3" fill="lightgrey" />
+        <circle cx="110" cy="10" r="3" fill="lightgrey" />
+        <circle r="5" fill="red">
+          <animateMotion dur="6s" repeatCount="indefinite">
+            <mpath href="#motionPath" />
+          </animateMotion>
+        </circle>
+      </Wrapper>
+    )),
   );
